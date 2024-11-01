@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components';
+import projects from '../data/projects.json';
+import StaticLayout from '../layouts/StaticLayout.astro';
+---
+
+<StaticLayout>
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">My Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map((project) => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+            {project.image && <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-48 object-cover"
+            />}
+            <div class="p-6 pb-0 flex-1">
+              <h2 class="text-2xl font-semibold mb-2">{project.title}</h2>
+              <p class="text-gray-600 mb-4">{project.description}</p>
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto flex justify-between p-6 pt-0">
+              <a
+                href={project.githubLink}
+                class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300 inline-flex items-center"
+              >
+                <Icon name="mdi:github" size={20} class="mr-1" />
+                View Code
+              </a>
+              {project.website && (
+                <a
+                  href={project.website}
+                  class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300 inline-flex items-center"
+                >
+                  <Icon name="mdi:external-link" size={20} class="mr-1" />
+                  Website
+                </a>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</StaticLayout>

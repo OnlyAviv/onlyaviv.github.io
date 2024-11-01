@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+import StaticLayout from '../layouts/StaticLayout.astro';
+
+const blogs = await Astro.glob('./posts/*.md');
+---
+
+<StaticLayout>
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold mb-8 text-center">Blog Posts</h1>
+      <div class="space-y-12">
+        {
+          blogs.map((post) => (
+            <article class="bg-white rounded-lg shadow-md p-6">
+              <h2 class="text-2xl font-semibold mb-2">{post.frontmatter.title}</h2>
+              <p class="text-gray-500 text-sm mb-4">{post.frontmatter.pubData}</p>
+              <p class="text-gray-600 mb-4">{post.frontmatter.description}</p>
+              <a
+                href={post.url}
+                class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300 inline-flex items-center"
+              >
+                Read Full Post
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </main>
+</StaticLayout>

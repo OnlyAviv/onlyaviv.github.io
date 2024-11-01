@@ -1,0 +1,22 @@
+---
+import StaticHeader from '../components/StaticHeader.astro';
+import Footer from '../components/Footer.astro';
+import BackToPortfiolio from '../components/BackToPortfiolio.astro';
+
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aviv Keller's Portfolio</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50 text-gray-800 font-sans">
+    <StaticHeader />
+    <BackToPortfiolio />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
