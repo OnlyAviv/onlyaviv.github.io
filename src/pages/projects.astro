@@ -2,10 +2,12 @@
 import { Icon } from 'astro-icon/components';
 import projects from '../data/projects.json';
 import StaticLayout from '../layouts/StaticLayout.astro';
+import BackToPortfiolio from '../components/BackToPortfiolio.astro';
 ---
 
 <StaticLayout>
   <main class="container mx-auto px-4 py-8">
+    <BackToPortfiolio />
     <h1 class="text-4xl font-bold mb-8 text-center">My Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {

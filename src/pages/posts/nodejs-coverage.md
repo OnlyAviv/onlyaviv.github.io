@@ -20,7 +20,8 @@ Let's walk through a simple example to demonstrate how code coverage works in No
 
 > **Note:** This example, and all other ones in this file, are written using CommonJS. If you are unfamiliar with this concept, please read the [CommonJS Modules](https://nodejs.org/docs/latest/api/modules.html) documentation.
 
-```cjs displayName="main.js"
+```javascript
+// main.js
 function add(a, b) {
   return a + b;
 }
@@ -36,7 +37,8 @@ function multiply(a, b) {
 module.exports = { add, isEven, multiply };
 ```
 
-```cjs displayName="main.test.js"
+```javascript
+// main.test.js
 const { add, isEven } = require('./main.js');
 const { test } = require('node:test');
 
@@ -55,16 +57,20 @@ In the test file, we are testing the `add()` and `isEven()` functions. Notice th
 
 To collect code coverage while running your tests, see the following snippets:
 
-```bash displayName="CLI"
+```bash
+# CLI
 node --experimental-test-coverage --test main.test.js
 ```
-```js displayName="run()"
+
+```js
+// run()
 run({ files: ['main.test.js'], coverage: true });
 ```
 
 After running the tests, you'll receive a report that looks something like this:
 
-```text displayName="Coverage Report"
+```text
+Coverage Report
 ✔ add() should add two numbers (1.505987ms)
 ✔ isEven() should report whether a number is even (0.175859ms)
 ℹ tests 2
@@ -106,7 +112,8 @@ Node.js provides mechanisms to handle this, including the use of comments to ign
 
 ### Using comments
 
-```cjs displayName="main.js"
+```javascript
+// main.js
 function add(a, b) {
   return a + b;
 }
@@ -121,36 +128,14 @@ function multiply(a, b) {
 }
 
 module.exports = { add, isEven, multiply };
-```
-
-```text displayName="Coverage Report"
-✔ add() should add two numbers (1.430634ms)
-✔ isEven() should report whether a number is even (0.202118ms)
-ℹ tests 2
-ℹ suites 0
-ℹ pass 2
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 60.507104
-ℹ start of coverage report
-ℹ -------------------------------------------------------------
-ℹ file         | line % | branch % | funcs % | uncovered lines
-ℹ -------------------------------------------------------------
-ℹ main.js      | 100.00 |   100.00 |  100.00 |
-ℹ main.test.js | 100.00 |   100.00 |  100.00 |
-ℹ -------------------------------------------------------------
-ℹ all files    | 100.00 |   100.00 |  100.00 |
-ℹ -------------------------------------------------------------
-ℹ end of coverage report
 ```
 
 When reporting coverage with this modified `main.js` file, the report will now show 100% coverage across all metrics. This is because the uncovered lines (9-11) have been ignored.
 
 There are multiple ways to ignore sections of code using comments.
 
-```cjs displayName="ignore next"
+```javascript
+// ignore next
 function add(a, b) {
   return a + b;
 }
@@ -167,7 +152,8 @@ function multiply(a, b) {
 module.exports = { add, isEven, multiply };
 ```
 
-```cjs displayName="ignore next"
+```javascript
+// ignore next
 function add(a, b) {
   return a + b;
 }
@@ -186,7 +172,8 @@ function multiply(a, b) {
 module.exports = { add, isEven, multiply };
 ```
 
-```cjs displayName="disable"
+```javascript
+// disable
 function add(a, b) {
   return a + b;
 }
@@ -216,15 +203,17 @@ The [`--test-coverage-exclude`](https://nodejs.org/api/cli.html#--test-coverage-
 
 These flags can be used multiple times, and when both are used together, files must adhere to the inclusion rules, while also avoiding the exclusion rules.
 
-```text displayName="Directory Structure"
+```text
+Directory Structure
 .
 ├── main.test.js
 ├── src
-│   ├── age.js
-│   └── name.js
+│   ├── age.js
+│   └── name.js
 ```
 
-```text displayName="Coverage Report"
+```text
+Coverage Report
 ℹ start of coverage report
 ℹ -------------------------------------------------------------
 ℹ file         | line % | branch % | funcs % | uncovered lines
@@ -240,14 +229,18 @@ These flags can be used multiple times, and when both are used together, files m
 
 `src/age.js` has less-than-optimal coverage in the report above, but with the `--test-coverage-exclude` flag (`coverageExcludeGlobs` in the `run()` API), it can be excluded from the report entirely.
 
-```bash displayName="CLI"
+```bash
+# CLI
 node --experimental-test-coverage --test-coverage-exclude=src/age.js --test main.test.js
 ```
-```js displayName="run()"
+
+```js
+// run()
 run({ files: ['main.test.js'], coverage: true, coverageExclude: ['src/age.js'] });
 ```
 
-```text displayName="New coverage report"
+```text
+New coverage report
 ℹ start of coverage report
 ℹ -------------------------------------------------------------
 ℹ file         | line % | branch % | funcs % | uncovered lines
@@ -260,58 +253,10 @@ run({ files: ['main.test.js'], coverage: true, coverageExclude: ['src/age.js'] }
 ℹ end of coverage report
 ```
 
-Our test file is also included in this coverage report, but we only want JavaScript files in the `src/` directory. The `--test-coverage-include` flag (`coverageIncludeGlobs` in the `run()` API) can be used in this case.
+Our test file is now displaying 100% coverage without `src/age.js` impacting the results.
 
-```bash displayName="CLI"
-node --experimental-test-coverage --test-coverage-include=src/*.js --test main.test.js
-```
-```js displayName="run()"
-run({ files: ['main.test.js'], coverage: true, coverageInclude: ['src/*.js'] });
-```
+## Conclusion
 
-```text displayName="New coverage report"
-ℹ start of coverage report
-ℹ ------------------------------------------------------------
-ℹ file        | line % | branch % | funcs % | uncovered lines
-ℹ ------------------------------------------------------------
-ℹ src/age.js  |  45.45 |   100.00 |    0.00 | 3-5 7-9
-ℹ src/name.js | 100.00 |   100.00 |  100.00 |
-ℹ ------------------------------------------------------------
-ℹ all files   |  72.73 |   100.00 |   66.67 |
-ℹ ------------------------------------------------------------
-ℹ end of coverage report
-```
+In this post, we covered how to collect code coverage in Node.js using the built-in test runner. By enabling the code coverage flag and structuring tests effectively, you can gain valuable insights into your code's test coverage. This process not only highlights untested code but also ensures your application is more robust and less prone to hidden bugs.
 
-## Thresholds
-
-By default, when all tests pass, Node.js exits with code `0`, which indicates a successful execution. However, the coverage report can be configured to exit with code `1` when coverage is failing.
-
-Node.js currently supports thresholds for all three of the coverages supported:
-
-- [`--test-coverage-lines`](https://nodejs.org/api/cli.html#--test-coverage-linesthreshold) (`lineCoverage` in the `run()` API) for line coverage.
-- [`--test-coverage-branches`](https://nodejs.org/api/cli.html#--test-coverage-branchesthreshold) (`branchCoverage` in the `run()` API) for branch coverage.
-- [`--test-coverage-functions`](https://nodejs.org/api/cli.html#--test-coverage-functionsthreshold) (`functionCoverage` in the `run()` API) for function coverage.
-
-If you wanted to require the previous example to have line coverage >= 90%, you could use the `--test-coverage-lines=90` flag (`lineCoverage: 90` in the `run()` API).
-
-```bash displayName="CLI"
-node --experimental-test-coverage --test-coverage-lines=90 --test main.test.js
-```
-```js displayName="run()"
-run({ files: ['main.test.js'], coverage: true, lineCoverage: 90 });
-```
-
-```text displayName="Coverage Report"
-ℹ start of coverage report
-ℹ -------------------------------------------------------------
-ℹ file         | line % | branch % | funcs % | uncovered lines
-ℹ -------------------------------------------------------------
-ℹ main.test.js | 100.00 |   100.00 |  100.00 |
-ℹ src/age.js   |  45.45 |   100.00 |    0.00 | 3-5 7-9
-ℹ src/name.js  | 100.00 |   100.00 |  100.00 |
-ℹ -------------------------------------------------------------
-ℹ all files    |  88.68 |   100.00 |   75.00 |
-ℹ -------------------------------------------------------------
-ℹ end of coverage report
-ℹ Error: 88.68% line coverage does not meet threshold of 90%.
-```
+With this knowledge, you can confidently employ code coverage as a tool to enhance the quality of your Node.js applications.
