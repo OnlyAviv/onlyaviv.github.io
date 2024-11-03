@@ -1,143 +1,98 @@
 [
-    {
-        "title": "Node.js",
-        "description": "Node.js® is a free, open-source JavaScript runtime environment that operates across platforms, enabling developers to build servers, web applications, command-line tools, and scripts with ease.",
-        "image": "https://nodejs.org/static/logos/nodejsDark.svg",
-        "technologies": [
-            "JavaScript",
-            "Node.js",
-            "C++"
-        ],
-        "githubLink": "https://github.com/nodejs/node",
-        "website": "https://nodejs.org/"
-    },
-    {
-        "title": "Apache Gora Website",
-        "description": "The official website dedicated to the Apache Gora Project.",
-        "image": "https://gora.apache.org/resources/img/gora-logo.png",
-        "technologies": [
-            "Bootstrap",
-            "HTML"
-        ],
-        "githubLink": "https://github.com/apache/gora-site",
-        "website": "https://gora.apache.org"
-    },
-    {
-        "title": "Terminal Tools",
-        "description": "A diverse assortment of utilities designed for the terminal.",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/terminaltools",
-        "website": "https://tt.js.org"
-    },
-    {
-        "title": "TinyBF",
-        "description": "The smallest Brainfuck compiler available!",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/tinybf"
-    },
-    {
-        "title": "termview",
-        "description": "A package that enables rendering of images, videos, and GIFs directly in the terminal.",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/termview"
-    },
-    {
-        "title": "Termestry",
-        "description": "A tapestry of terminal outputs.",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/termestry",
-        "website": "https://termestry.js.org"
-    },
-    {
-        "title": "ProtoTools",
-        "description": "ProtoTools offers various utilities to streamline the coding process.",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/ProtoTools"
-    },
-    {
-        "title": "bingmaps",
-        "description": "A Node.js wrapper for interacting with the Bing Maps API.",
-        "technologies": [
-            "JavaScript",
-            "Node.js"
-        ],
-        "githubLink": "https://github.com/redyetidev/bingmaps"
-    },
-    {
-        "title": "not-so-human-benchmark",
-        "description": "An unconventional approach to completing the Human Benchmark tests.",
-        "technologies": [
-            "JavaScript",
-            "Node.js",
-            "Bing Maps"
-        ],
-        "githubLink": "https://github.com/redyetidev/not-so-human-benchmark"
-    },
-    {
-        "title": "pip-parse",
-        "description": "A JavaScript library designed to parse Python package requirements effectively.",
-        "technologies": [
-            "JavaScript",
-            "Node.js",
-            "Python"
-        ],
-        "githubLink": "https://github.com/redyetidev/pip-parse"
-    },
-    {
-        "title": "split-with-continuation",
-        "description": "A utility for splitting lines using a custom newline separator along with a continuation character.",
-        "technologies": [
-            "JavaScript"
-        ],
-        "githubLink": "https://github.com/redyetidev/split-with-continuation"
-    },
-    {
-        "title": "is-lower",
-        "description": "A JavaScript library that checks if a string is entirely in lowercase.",
-        "technologies": [
-            "JavaScript"
-        ],
-        "githubLink": "https://github.com/redyetidev/is-lower"
-    },
-    {
-        "title": "uniform-locale",
-        "description": "An ESLint plugin that enforces consistency in locale spelling across your project.",
-        "technologies": [
-            "JavaScript",
-            "ESLint"
-        ],
-        "githubLink": "https://github.com/redyetidev/uniform-locale"
-    },
-    {
-        "title": "frozen-fruit",
-        "description": "Provides frozen primordials for JavaScript projects.",
-        "technologies": [
-            "JavaScript"
-        ],
-        "githubLink": "https://github.com/redyetidev/frozen-fruit"
-    },
-    {
-        "title": "clang-tidy",
-        "description": "A Node.js wrapper for the clang-tidy tool, simplifying its use in Node.js applications.",
-        "technologies": [
-            "JavaScript",
-            "LLVM"
-        ],
-        "githubLink": "https://github.com/redyetidev/clang-tidy"
-    }
+  {
+    "title": "Node.js",
+    "description": "Node.js® is a free, open-source JavaScript runtime environment that operates across platforms, enabling developers to build servers, web applications, command-line tools, and scripts with ease.",
+    "image": "https://nodejs.org/static/logos/nodejsDark.svg",
+    "technologies": ["JavaScript", "Node.js", "C++"],
+    "githubLink": "https://github.com/nodejs/node",
+    "website": "https://nodejs.org/"
+  },
+  {
+    "title": "Apache Gora Website",
+    "description": "The official website dedicated to the Apache Gora Project.",
+    "image": "https://gora.apache.org/resources/img/gora-logo.png",
+    "technologies": ["Bootstrap", "HTML"],
+    "githubLink": "https://github.com/apache/gora-site",
+    "website": "https://gora.apache.org"
+  },
+  {
+    "title": "Terminal Tools",
+    "description": "A diverse assortment of utilities designed for the terminal.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/terminaltools",
+    "website": "https://tt.js.org"
+  },
+  {
+    "title": "TinyBF",
+    "description": "The smallest Brainfuck compiler available!",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/tinybf"
+  },
+  {
+    "title": "termview",
+    "description": "A package that enables rendering of images, videos, and GIFs directly in the terminal.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/termview"
+  },
+  {
+    "title": "Termestry",
+    "description": "A tapestry of terminal outputs.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/termestry",
+    "website": "https://termestry.js.org"
+  },
+  {
+    "title": "ProtoTools",
+    "description": "ProtoTools offers various utilities to streamline the coding process.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/ProtoTools"
+  },
+  {
+    "title": "bingmaps",
+    "description": "A Node.js wrapper for interacting with the Bing Maps API.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/redyetidev/bingmaps"
+  },
+  {
+    "title": "not-so-human-benchmark",
+    "description": "An unconventional approach to completing the Human Benchmark tests.",
+    "technologies": ["JavaScript", "Node.js", "Bing Maps"],
+    "githubLink": "https://github.com/redyetidev/not-so-human-benchmark"
+  },
+  {
+    "title": "pip-parse",
+    "description": "A JavaScript library designed to parse Python package requirements effectively.",
+    "technologies": ["JavaScript", "Node.js", "Python"],
+    "githubLink": "https://github.com/redyetidev/pip-parse"
+  },
+  {
+    "title": "split-with-continuation",
+    "description": "A utility for splitting lines using a custom newline separator along with a continuation character.",
+    "technologies": ["JavaScript"],
+    "githubLink": "https://github.com/redyetidev/split-with-continuation"
+  },
+  {
+    "title": "is-lower",
+    "description": "A JavaScript library that checks if a string is entirely in lowercase.",
+    "technologies": ["JavaScript"],
+    "githubLink": "https://github.com/redyetidev/is-lower"
+  },
+  {
+    "title": "uniform-locale",
+    "description": "An ESLint plugin that enforces consistency in locale spelling across your project.",
+    "technologies": ["JavaScript", "ESLint"],
+    "githubLink": "https://github.com/redyetidev/uniform-locale"
+  },
+  {
+    "title": "frozen-fruit",
+    "description": "Provides frozen primordials for JavaScript projects.",
+    "technologies": ["JavaScript"],
+    "githubLink": "https://github.com/redyetidev/frozen-fruit"
+  },
+  {
+    "title": "clang-tidy",
+    "description": "A Node.js wrapper for the clang-tidy tool, simplifying its use in Node.js applications.",
+    "technologies": ["JavaScript", "LLVM"],
+    "githubLink": "https://github.com/redyetidev/clang-tidy"
+  }
 ]

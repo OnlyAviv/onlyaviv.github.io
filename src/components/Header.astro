@@ -1,24 +1,18 @@
 ---
 // Import the Icon component
-import { Icon } from 'astro-icon/components';
-
-// Define the navigation sections
-const sections = [
-  { href: '/projects', title: 'Projects' },
-  { href: '/blog', title: 'Blog' },
-  { href: '/achievements', title: 'Achievements' },
-  { href: 'https://github.com/sponsors/redyetidev', title: 'Donate'}
-];
+import { Icon } from "astro-icon/components";
+import sections from "../data/sections.json";
 ---
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="fixed left-0 right-0 top-0 z-50 transition-all duration-300"
 >
   <div class="container mx-auto px-4">
-    <div class="flex justify-between items-center py-4">
-      <a id="logo" class="text-2xl font-bold text-white" href="/">Aviv Keller</a>
-      <div id="menu-items" class="hidden md:flex space-x-6 text-white">
+    <div class="flex items-center justify-between py-4">
+      <a id="logo" class="text-2xl font-bold text-white" href="/">Aviv Keller</a
+      >
+      <div id="menu-items" class="hidden space-x-6 text-white md:flex">
         {
           sections.map(({ title, href }) => (
             <a href={href} class="nav-link transition-colors duration-300">
@@ -27,20 +21,20 @@ const sections = [
           ))
         }
       </div>
-      <button id="menuToggle" class="md:hidden text-white z-40">
-        <Icon class="w-8 h-8" name="mdi:menu" />
+      <button id="menuToggle" class="z-40 text-white md:hidden">
+        <Icon class="h-8 w-8" name="mdi:menu" />
       </button>
     </div>
   </div>
 
   {/* Mobile Menu */}
-  <div id="mobileMenu" class="fixed inset-0 bg-white z-30 md:hidden hidden">
-    <div class="flex flex-col items-center justify-center h-full space-y-6">
+  <div id="mobileMenu" class="fixed inset-0 z-30 hidden bg-white md:hidden">
+    <div class="flex h-full flex-col items-center justify-center space-y-6">
       {
         sections.map(({ title, href }) => (
           <a
             href={href}
-            class="text-xl text-gray-600 hover:text-red-600 transition-colors duration-300"
+            class="text-xl text-gray-600 transition-colors duration-300 hover:text-red-600"
           >
             {title}
           </a>
@@ -51,40 +45,41 @@ const sections = [
 </nav>
 
 <script>
-  const navbar = document.getElementById('navbar');
-  const logo = document.getElementById('logo');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
+  const navbar = document.getElementById("navbar");
+  const logo = document.getElementById("logo");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
   let isMenuExpanded = false;
 
   const toggleMobileMenu = () => {
     isMenuExpanded = !isMenuExpanded;
-    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle("hidden");
+
     if (window.scrollY <= 50) {
-        menuToggle.classList.toggle('text-white');
+      menuToggle.classList.toggle("text-white");
+      menuToggle.classList.toggle("text-gray-600");
     }
-    updateNavbarStyle();
   };
 
   const updateNavbarStyle = () => {
     if (isMenuExpanded) return;
     const isScrolled = window.scrollY > 50;
-    navbar.classList.toggle('bg-white', isScrolled);
-    navbar.classList.toggle('shadow-md', isScrolled);
-    navbar.classList.toggle('bg-transparent', !isScrolled);
-    logo.classList.toggle('text-red-600', isScrolled);
-    logo.classList.toggle('text-white', !isScrolled);
+    navbar.classList.toggle("bg-white", isScrolled);
+    navbar.classList.toggle("shadow-md", isScrolled);
+    navbar.classList.toggle("bg-transparent", !isScrolled);
+    logo.classList.toggle("text-red-600", isScrolled);
+    logo.classList.toggle("text-white", !isScrolled);
     navLinks.forEach((link) => {
-      link.classList.toggle('text-gray-600', isScrolled);
-      link.classList.toggle('text-white', !isScrolled);
-      link.classList.toggle('hover:text-red-600', isScrolled);
+      link.classList.toggle("text-gray-600", isScrolled);
+      link.classList.toggle("text-white", !isScrolled);
+      link.classList.toggle("hover:text-red-600", isScrolled);
     });
     // Update the toggle button color based on the scroll state
-    menuToggle.classList.toggle('text-white', !isScrolled);
-    menuToggle.classList.toggle('text-gray-600', isScrolled);
+    menuToggle.classList.toggle("text-white", !isScrolled);
+    menuToggle.classList.toggle("text-gray-600", isScrolled);
   };
 
-  window.addEventListener('scroll', updateNavbarStyle);
+  window.addEventListener("scroll", updateNavbarStyle);
   menuToggle.onclick = toggleMobileMenu;
 </script>

@@ -2,9 +2,8 @@
 title: Collecting code coverage in Node.js
 layout: ../../layouts/PostLayout.astro
 pubDate: November 2nd, 2024
+readingTime: 6 min
 ---
-
-# Collecting code coverage in Node.js
 
 Node.js provides built-in support for code coverage through its test runner, which can be enabled using the [`--experimental-code-coverage`](https://nodejs.org/api/cli.html#--experimental-test-coverage) flag.
 
@@ -39,14 +38,14 @@ module.exports = { add, isEven, multiply };
 
 ```javascript
 // main.test.js
-const { add, isEven } = require('./main.js');
-const { test } = require('node:test');
+const { add, isEven } = require("./main.js");
+const { test } = require("node:test");
 
-test('add() should add two numbers', t => {
+test("add() should add two numbers", (t) => {
   t.assert.strictEqual(add(1, 2), 3);
 });
 
-test('isEven() should report whether a number is even', t => {
+test("isEven() should report whether a number is even", (t) => {
   t.assert.ok(isEven(0));
 });
 ```
@@ -64,7 +63,7 @@ node --experimental-test-coverage --test main.test.js
 
 ```js
 // run()
-run({ files: ['main.test.js'], coverage: true });
+run({ files: ["main.test.js"], coverage: true });
 ```
 
 After running the tests, you'll receive a report that looks something like this:
@@ -236,7 +235,11 @@ node --experimental-test-coverage --test-coverage-exclude=src/age.js --test main
 
 ```js
 // run()
-run({ files: ['main.test.js'], coverage: true, coverageExclude: ['src/age.js'] });
+run({
+  files: ["main.test.js"],
+  coverage: true,
+  coverageExclude: ["src/age.js"],
+});
 ```
 
 ```text

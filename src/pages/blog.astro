@@ -1,31 +1,28 @@
 ---
-import { Icon } from 'astro-icon/components';
-import StaticLayout from '../layouts/StaticLayout.astro';
-import BackToPortfiolio from '../components/BackToPortfiolio.astro';
+import StaticLayout from "../layouts/StaticLayout.astro";
+import BackTo from "../components/BackTo.astro";
 
-const blogs = await Astro.glob('./posts/*.md');
+const blogs = await Astro.glob("./posts/*.md");
 ---
 
-<StaticLayout>
-    <main class="container mx-auto px-4 py-8">
-      <BackToPortfiolio />
-      <h1 class="text-4xl font-bold mb-8 text-center">Blog Posts</h1>
-      <div class="space-y-12">
-        {
-          blogs.map((post) => (
-            <article class="bg-white rounded-lg shadow-md p-6">
-              <h2 class="text-2xl font-semibold mb-2">{post.frontmatter.title}</h2>
-              <p class="text-gray-500 text-sm mb-4">{post.frontmatter.pubData}</p>
-              <p class="text-gray-600 mb-4">{post.frontmatter.description}</p>
-              <a
-                href={post.url}
-                class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300 inline-flex items-center"
-              >
-                Read Full Post
-              </a>
-            </article>
-          ))
-        }
-      </div>
-    </main>
+<StaticLayout title="Blog">
+  <BackTo />
+  <h1 class="mb-8 text-center text-4xl font-bold">Blog Posts</h1>
+  <div class="space-y-12">
+    {
+      blogs.map((post) => (
+        <article class="rounded-lg bg-white p-6 shadow-md">
+          <h2 class="mb-2 text-2xl font-semibold">{post.frontmatter.title}</h2>
+          <p class="mb-4 text-sm text-gray-500">{post.frontmatter.pubData}</p>
+          <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
+          <a
+            href={post.url}
+            class="inline-flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
+          >
+            Read Full Post
+          </a>
+        </article>
+      ))
+    }
+  </div>
 </StaticLayout>

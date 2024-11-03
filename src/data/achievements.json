@@ -10,7 +10,7 @@
   },
   {
     "title": "Apache Hall of Fame",
-    "icon": "mdi:search-web",
+    "icon": "mdi:leaf",
     "url": "https://security.apache.org/blog/credits/"
   },
   {
@@ -96,7 +96,7 @@
   {
     "title": "OpenSSP Hall of Fame",
     "icon": "mdi:security",
-    "url": "https://docs.openspp.org/community_and_support/security_report.html" 
+    "url": "https://docs.openspp.org/community_and_support/security_report.html"
   },
   {
     "title": "Barclays Hall of Fame",

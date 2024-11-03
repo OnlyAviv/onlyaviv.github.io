@@ -1,24 +1,17 @@
 ---
 // Import the Icon component
-import { Icon } from 'astro-icon/components';
-
-// Define the navigation sections
-const sections = [
-  { href: '/projects', title: 'Projects' },
-  { href: '/blog', title: 'Blog' },
-  { href: '/achievements', title: 'Achievements' },
-  { href: 'https://github.com/sponsors/redyetidev', title: 'Donate'}
-];
+import { Icon } from "astro-icon/components";
+import sections from "../data/sections.json";
 ---
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md bg-white"
+  class="fixed left-0 right-0 top-0 z-50 bg-white shadow-md transition-all duration-300"
 >
   <div class="container mx-auto px-4">
-    <div class="flex justify-between items-center py-4">
-      <a id="logo" class="text-2xl font-bold text-red" href="/">Aviv Keller</a>
-      <div id="menu-items" class="hidden md:flex space-x-6">
+    <div class="flex items-center justify-between py-4">
+      <a id="logo" class="text-red text-2xl font-bold" href="/">Aviv Keller</a>
+      <div id="menu-items" class="hidden space-x-6 md:flex">
         {
           sections.map(({ title, href }) => (
             <a href={href} class="nav-link transition-colors duration-300">
@@ -27,20 +20,20 @@ const sections = [
           ))
         }
       </div>
-      <button id="menuToggle" class="md:hidden text-white z-40">
-        <Icon class="w-8 h-8" name="mdi:menu" />
+      <button id="menuToggle" class="z-40 text-white md:hidden">
+        <Icon class="h-8 w-8" name="mdi:menu" />
       </button>
     </div>
   </div>
 
   {/* Mobile Menu */}
-  <div id="mobileMenu" class="fixed inset-0 bg-white z-30 md:hidden hidden">
-    <div class="flex flex-col items-center justify-center h-full space-y-6">
+  <div id="mobileMenu" class="fixed inset-0 z-30 hidden bg-white md:hidden">
+    <div class="flex h-full flex-col items-center justify-center space-y-6">
       {
         sections.map(({ title, href }) => (
           <a
             href={href}
-            class="text-xl text-gray-600 hover:text-red-600 transition-colors duration-300"
+            class="text-xl text-gray-600 transition-colors duration-300 hover:text-red-600"
           >
             {title}
           </a>
@@ -51,16 +44,13 @@ const sections = [
 </nav>
 
 <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  let isMenuExpanded = false;
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
   const toggleMobileMenu = () => {
-    isMenuExpanded = !isMenuExpanded;
-    mobileMenu.classList.toggle('hidden');
-    menuToggle.classList.toggle('text-white');
-
+    mobileMenu.classList.toggle("hidden");
+    menuToggle.classList.toggle("text-white");
   };
   menuToggle.onclick = toggleMobileMenu;
 </script>
-<div class="h-16 relative"></div>
+<div class="relative h-16"></div>

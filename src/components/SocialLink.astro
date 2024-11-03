@@ -2,12 +2,11 @@
 import { Icon } from "astro-icon/components";
 
 const { icon, href } = Astro.props;
-
 ---
 
 <a
   href={href}
-  class="text-gray-600 hover:text-red-600 transition-transform transform duration-300 hover:scale-110"
+  class="transform text-gray-600 transition-transform duration-300 hover:scale-110 hover:text-red-600"
 >
   <Icon name={icon} size={24} />
 </a>

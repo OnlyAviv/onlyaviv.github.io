@@ -1,45 +1,47 @@
 ---
-import { Icon } from 'astro-icon/components';
-import projects from '../data/projects.json';
-import achievements from '../data/achievements.json';
-import SocialLinks from '../components/SocialLinks.astro';
-import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/Hero.astro';
+import { Icon } from "astro-icon/components";
+import projects from "../data/projects.json";
+import achievements from "../data/achievements.json";
+import SocialLinks from "../components/SocialLinks.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
 
-const blogs = await Astro.glob('./posts/*.md');
+const blogs = await Astro.glob("./posts/*.md");
 ---
 
-<MainLayout>
+<MainLayout title="Home">
   <Hero>
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">Aviv Keller</h1>
-    <p class="text-xl md:text-2xl mb-8">Developer & Security Enthusiast</p>
+    <h1 class="mb-4 text-5xl font-bold md:text-6xl">Aviv Keller</h1>
+    <p class="mb-8 text-xl md:text-2xl">Developer & Security Enthusiast</p>
     <a
       href="#projects"
-      class="bg-white text-red-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-100 transition-colors duration-300"
+      class="rounded-full bg-white px-8 py-3 text-lg font-semibold text-red-600 transition-colors duration-300 hover:bg-red-100"
       >View My Work</a
     >
   </Hero>
   {/* Main Content */}
   <main>
     {/* Projects Section */}
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="bg-white py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 class="mb-8 text-center text-3xl font-bold">Projects</h2>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             projects.slice(0, 3).map((project) => (
-              <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col justify-between">
-                {project.image && <img
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 object-cover"
-                />}
+              <div class="flex transform flex-col justify-between overflow-hidden rounded-lg bg-gray-50 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="h-48 w-full object-cover"
+                  />
+                )}
                 <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p class="text-gray-600 mb-4">{project.description}</p>
+                  <h3 class="mb-2 text-xl font-semibold">{project.title}</h3>
+                  <p class="mb-4 text-gray-600">{project.description}</p>
                   <a
                     href={project.website || project.githubLink}
-                    class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300"
+                    class="font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
                   >
                     View More
                   </a>
@@ -51,7 +53,7 @@ const blogs = await Astro.glob('./posts/*.md');
         <div class="mt-12 text-center">
           <a
             href="/projects"
-            class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+            class="rounded-full bg-red-600 px-8 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-700"
           >
             View More Projects
           </a>
@@ -60,24 +62,24 @@ const blogs = await Astro.glob('./posts/*.md');
     </section>
 
     {/* Achievements Section */}
-    <section id="achievements" class="py-20 bg-red-50">
+    <section id="achievements" class="bg-red-50 py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center">Achievements</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 class="mb-8 text-center text-3xl font-bold">Achievements</h2>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           {
             achievements.slice(0, 3).map((achievement) => (
-              <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                <div class="flex justify-center mb-4">
+              <div class="animate-fade-in-up transform rounded-lg bg-white p-6 text-center shadow-md transition duration-300 hover:scale-105">
+                <div class="mb-4 flex justify-center">
                   <Icon
-                    class="w-12 h-12 text-red-600"
+                    class="h-12 w-12 text-red-600"
                     name={achievement.icon}
                   />
                 </div>
-                <h3 class="text-xl font-semibold mb-2">{achievement.title}</h3>
+                <h3 class="mb-2 text-xl font-semibold">{achievement.title}</h3>
                 {achievement.url && (
                   <a
                     href={achievement.url}
-                    class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300"
+                    class="font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
                   >
                     Learn More
                   </a>
@@ -89,7 +91,7 @@ const blogs = await Astro.glob('./posts/*.md');
         <div class="mt-12 text-center">
           <a
             href="/achievements"
-            class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+            class="rounded-full bg-red-600 px-8 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-700"
           >
             View More Achievements
           </a>
@@ -98,23 +100,24 @@ const blogs = await Astro.glob('./posts/*.md');
     </section>
 
     {/* About Section */}
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="bg-white py-20">
       <div class="container mx-auto px-4">
         <div
-          class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12"
+          class="flex flex-col items-center justify-center md:flex-row md:justify-start md:space-x-12 md:space-y-0"
         >
           <img
             src="https://avatars.githubusercontent.com/u/38299977"
-            class="w-64 h-64 rounded-full object-cover"
+            class="h-64 w-64 rounded-full object-cover"
           />
-          <div>
-            <h2 class="text-3xl font-bold mb-4">About Me</h2>
-            <p class="text-gray-600 mb-4">
+          <div class="text-center md:text-left">
+            {/* Center text on small screens */}
+            <h2 class="mb-4 text-3xl font-bold">About Me</h2>
+            <p class="mb-4 text-gray-600">
               I'm a passionate software engineer with expertise in
               cybersecurity. I've worked on a wide range of projects from
               startups to Fortune 500 companies.
             </p>
-            <p class="text-gray-600 mb-4">
+            <p class="mb-4 text-gray-600">
               My goal is to create innovative solutions that make a positive
               impact on people's lives while ensuring the highest level of
               security.
@@ -124,57 +127,58 @@ const blogs = await Astro.glob('./posts/*.md');
         </div>
       </div>
     </section>
-  </main>
 
-  {/* Blog Section */}
-  <section id="blog" class="py-20 bg-red-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-8 text-center">Latest Blog Posts</h2>
-      <div class="space-y-8">
-        {
-          blogs.slice(0, 3).map((post) => (
-            <div class="bg-white rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold mb-2">
-                {post.frontmatter.title}
-              </h3>
-              <p class="text-gray-500 text-sm mb-2">
-                {post.frontmatter.pubDate}
-              </p>
-              <p class="text-gray-600 mb-4">{post.frontmatter.description}</p>
-              <a
-                href={post.url}
-                class="text-red-600 hover:text-red-700 font-semibold transition-colors duration-300 flex items-center"
-              >
-                Read More
-              </a>
-            </div>
-          ))
-        }
+    {/* Blog Section */}
+    <section id="blog" class="bg-red-50 py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="mb-8 text-center text-3xl font-bold">Latest Blog Posts</h2>
+        <div class="space-y-8">
+          {
+            blogs.slice(0, 3).map((post) => (
+              <div class="rounded-lg bg-white p-6 shadow-md">
+                <h3 class="mb-2 text-xl font-semibold">
+                  {post.frontmatter.title}
+                </h3>
+                <p class="mb-2 text-sm text-gray-500">
+                  {post.frontmatter.pubDate}
+                </p>
+                <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
+                <a
+                  href={post.url}
+                  class="flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
+                >
+                  Read More
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-12 text-center">
+          <a
+            href="/blog"
+            class="rounded-full bg-red-600 px-8 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-700"
+          >
+            View All Blog Posts
+          </a>
+        </div>
       </div>
-      <div class="mt-12 text-center">
+    </section>
+
+    {/* Donate Section */}
+    <section id="donate" class="bg-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="mb-4 text-3xl font-bold">Support My Work</h2>
+        <p class="mx-auto mb-8 max-w-2xl text-gray-600">
+          Your donations help me continue creating open-source projects and
+          contributing to the developer community.
+        </p>
         <a
-          href="/blog"
-          class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+          href="https://github.com/sponsors/redyetidev"
+          class="rounded-full bg-red-600 px-8 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-700"
         >
-          View All Blog Posts
+          Make a Donation
         </a>
       </div>
-    </div>
-  </section>
-
-  {/* Donate Section */}
-  <section id="donate" class="py-20 bg-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Support My Work</h2>
-      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Your donations help me continue creating open-source projects and contributing to the developer community.
-      </p>
-      <a
-        href="https://github.com/sponsors/redyetidev"
-        class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
-      >
-        Make a Donation
-      </a>
-    </div>
-  </section>
+    </section>
+  </main>
 </MainLayout>

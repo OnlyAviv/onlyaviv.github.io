@@ -1,0 +1,91 @@
+---
+import { Icon } from "astro-icon/components";
+import StaticLayout from "../layouts/StaticLayout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+
+const content = {
+  personal:
+    "RedYetiDev, also known as Aviv Keller, is a passionate software developer and cybersecurity researcher. Known for tackling challenging digital problems and advancing cybersecurity efforts, Aviv brings a deep commitment to both technology and security.",
+
+  professional:
+    "As a cybersecurity researcher, RedYetiDev participates actively in bug bounty programs, discovering and responsibly disclosing security vulnerabilities. They contribute to major open-source projects like Node.js and have designed the UI for the Apache Gora website. RedYetiDev also develops various software tools and libraries, particularly in JavaScript, for purposes ranging from terminal enhancements to full-stack solutions.",
+
+  hobbies:
+    "In their free time, RedYetiDev enjoys exploring new cybersecurity challenges, contributing to open-source projects, and pushing the boundaries of technology. You might find them engaging in bug bounties or hunting vulnerabilities on platforms like HackerOne and Immunefi.",
+};
+---
+
+<StaticLayout title="About">
+  <h1 class="mb-8 text-center text-4xl font-bold">About Me</h1>
+
+  {/* Profile Section */}
+  <section
+    class="mb-12 flex flex-col items-center space-y-8 md:flex-row md:items-start md:space-x-12 md:space-y-0"
+  >
+    <img
+      src="https://avatars.githubusercontent.com/u/38299977"
+      class="h-64 w-64 rounded-full object-cover shadow-lg"
+    />
+    <div>
+      <h2 class="mb-4 text-3xl font-bold">Aviv Keller</h2>
+      <p class="mb-4 text-xl">Developer & Security Enthusiast</p>
+      <p class="mb-4 text-gray-600">
+        Hello there! I'm Aviv, a passionate developer with a love for creating
+        innovative solutions and pushing the boundaries of what's possible with
+        code. When I'm not immersed in lines of JavaScript or debugging the
+        latest project, you can find me exploring new technologies, contributing
+        to open-source projects, or sharing my knowledge through blog posts.
+      </p>
+      <SocialLinks />
+    </div>
+  </section>
+
+  {/* Professional Journey */}
+  <section class="mb-16">
+    <h3 class="mb-4 text-2xl font-bold text-red-600">
+      My Professional Journey
+    </h3>
+    <div class="rounded-lg bg-white p-6 shadow-md">
+      <p class="mb-4">
+        My expertise lies in full-stack development, with a particular focus on
+        Node.js, and cloud technologies. I'm passionate about creating scalable,
+        efficient, and user-friendly applications that solve real-world
+        problems.
+      </p>
+      <p class="mb-4">
+        My approach to development is rooted in clean code principles,
+        test-driven development, and continuous learning. I believe in the power
+        of technology to create positive change and strive to contribute to this
+        vision through my work and community involvement.
+      </p>
+      <p>
+        Throughout my career, I've also been an advocate for diversity in tech.
+        I'm always excited to take on new challenges and collaborate with
+        like-minded individuals to build innovative solutions.
+      </p>
+    </div>
+  </section>
+
+  {/* Skills Section */}
+  <section class="mb-16">
+    <h3 class="mb-4 text-2xl font-bold text-red-600">Skills & Technologies</h3>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {
+        [
+          "JavaScript",
+          "Github Actions",
+          "Node.js",
+          "Cybersecurity",
+          "Astro",
+          "HTML",
+          "Cloud Computing",
+          "Git",
+        ].map((skill) => (
+          <div class="rounded-lg bg-white p-4 text-center shadow-md transition-colors duration-300 hover:bg-red-50">
+            {skill}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</StaticLayout>
