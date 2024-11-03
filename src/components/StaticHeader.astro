@@ -20,7 +20,7 @@ import sections from "../data/sections.json";
           ))
         }
       </div>
-      <button id="menuToggle" class="z-40 text-white md:hidden">
+      <button id="menuToggle" class="z-40 md:hidden">
         <Icon class="h-8 w-8" name="mdi:menu" />
       </button>
     </div>
@@ -49,7 +49,6 @@ import sections from "../data/sections.json";
 
   const toggleMobileMenu = () => {
     mobileMenu.classList.toggle("hidden");
-    menuToggle.classList.toggle("text-white");
   };
   menuToggle.onclick = toggleMobileMenu;
 </script>
