@@ -1,0 +1,203 @@
+---
+import { Icon } from "astro-icon/components";
+import StaticLayout from "../layouts/StaticLayout.astro";
+import BackTo from "../components/BackTo.astro";
+
+const langs = [
+  { lang: "English", level: "Native" },
+  { lang: "Hebrew", level: "Intermediate" },
+];
+
+const interests = [
+  "Open-source contribution",
+  "AI and Machine Learning",
+  "Reading and Writing",
+];
+
+const certifications = [
+  "Google Certified in Digital Marketing",
+  "ISC2 Candidate",
+];
+
+const experiences = [
+  {
+    title: "(Non-Core) Collaborator",
+    company: "Node.js",
+    period: "2024 - Present",
+    responsibilities: [
+      "Added glob support to various core modules, such as node:test coverage and node:path",
+      "Removed over 500,000 lines of tech debt",
+    ],
+  },
+];
+
+const skills = [
+  "JavaScript",
+  "React",
+  "Node.js",
+  "Python",
+  "TypeScript",
+  "CI/CD",
+];
+---
+
+<StaticLayout title="Resume">
+  <BackTo />
+  <div class="overflow-hidden rounded-lg bg-white shadow-xl">
+    {/* Header */}
+    <header class="bg-red-600 p-8 text-white">
+      <h1 class="mb-2 text-4xl font-bold">Aviv Keller</h1>
+      <p class="text-xl">Full Stack Developer</p>
+    </header>
+
+    {/* Contact Information */}
+    <section class="flex flex-wrap justify-center gap-4 bg-red-100 p-6">
+      {
+        [
+          {
+            href: "mailto:hello@redyeti.dev",
+            icon: "mdi:email",
+            text: "hello@redyeti.dev",
+          },
+          {
+            href: "https://github.com/redyetidev",
+            icon: "mdi:github",
+            text: "github.com/redyetidev",
+          },
+          {
+            href: "https://linkedin.com/in/redyetidev",
+            icon: "mdi:linkedin",
+            text: "linkedin.com/in/redyetidev",
+          },
+        ].map((item, index) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="animate-fadeIn inline-flex items-center rounded-full bg-white px-3 py-1 text-red-600 shadow-sm transition-all duration-300 hover:scale-105 hover:text-red-700 hover:shadow-md"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <Icon name={item.icon} size={16} />
+            <span class="ml-2">{item.text}</span>
+          </a>
+        ))
+      }
+    </section>
+
+    {/* Summary */}
+    <section class="p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:star" class="mr-2 text-red-600" />
+        Professional Summary
+      </h2>
+      <div class="rounded-lg bg-gray-100 p-6 shadow-inner">
+        <p class="leading-relaxed text-gray-700">
+          My expertise lies in full-stack development with a focus on Node.js
+          and cloud technologies, and I'm passionate about building scalable,
+          efficient, and user-friendly applications that address real-world
+          problems. I approach development with a commitment to clean code
+          principles, test-driven development, and continuous learning,
+          believing in the power of technology to create positive change.
+          Throughout my career, I've been an advocate for diversity in tech and
+          am always eager to take on new challenges and collaborate with
+          like-minded individuals to create innovative solutions.
+        </p>
+      </div>
+    </section>
+
+    {/* Work Experience */}
+    <section class="p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:briefcase" class="mr-2 text-red-600" />
+        Work Experience
+      </h2>
+      <div class="space-y-6">
+        {
+          experiences.map((exp, index) => (
+            <div class="rounded-lg bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg">
+              <h3 class="text-xl font-semibold">{exp.title}</h3>
+              <p class="mb-2 text-red-600">
+                {exp.company} | {exp.period}
+              </p>
+              <ul class="list-inside list-disc space-y-1 text-gray-700">
+                {exp.responsibilities.map((resp, i) => (
+                  <li>{resp}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Skills */}
+    <section class="bg-gray-50 p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:code" class="mr-2 text-red-600" />
+        Technical Skills
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          skills.map((skill) => (
+            <span class="rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-800 shadow-sm transition-shadow duration-300 hover:shadow-lg">
+              {skill}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Certifications */}
+    <section class="bg-gray-50 p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:award" class="mr-2 text-red-600" />
+        Certifications
+      </h2>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {
+          certifications.map((cert, index) => (
+            <div class="flex items-center rounded-lg bg-white p-4 shadow-md transition-shadow duration-300 hover:shadow-lg">
+              <Icon name="mdi:award" class="mr-2 text-red-600" size={20} />
+              <span>{cert}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Languages */}
+    <section class="p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:earth" class="mr-2 text-red-600" />
+        Languages
+      </h2>
+      <div class="flex flex-wrap gap-4">
+        {
+          langs.map((item, index) => (
+            <div class="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition-shadow duration-300 hover:shadow-lg">
+              <span class="font-semibold">{item.lang}</span>
+              <span class="text-sm text-gray-600">{item.level}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Interests */}
+    <section class="bg-gray-50 p-8">
+      <h2 class="mb-4 flex items-center text-2xl font-bold">
+        <Icon name="mdi:security" class="mr-2 text-red-600" />
+        Interests
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          interests.map((interest, index) => (
+            <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-gray-800 shadow-md transition-shadow duration-300 hover:shadow-lg">
+              {interest}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</StaticLayout>

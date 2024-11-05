@@ -11,7 +11,7 @@ import BackTo from "../components/BackTo.astro";
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
     {
       achievements.map((achievement) => (
-        <div class="rounded-lg bg-white p-6 text-center shadow-md">
+        <div class="rounded-lg bg-white p-6 text-center shadow-md transition duration-300 hover:scale-105">
           <div class="mb-4 flex justify-center">
             <Icon class="h-12 w-12 text-red-600" name={achievement.icon} />
           </div>

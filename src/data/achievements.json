@@ -24,6 +24,11 @@
     "url": "https://security.wikimedia.org/hall-of-fame/"
   },
   {
+    "title": "GitHub Security Bug Bounty Hunter",
+    "icon": "mdi:github",
+    "url": "https://github.com/orgs/GitHubBounty/people?query=RedYetiDev"
+  },
+  {
     "title": "SAP Hall of Fame",
     "icon": "mdi:security",
     "url": "https://support.sap.com/en/my-support/knowledge-base/security-notes-news/credits-for-security-researchers.html"
