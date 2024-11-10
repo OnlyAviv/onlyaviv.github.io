@@ -1,11 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { icon, href } = Astro.props;
+const { icon, href, rel } = Astro.props;
 ---
 
 <a
-  href={href}
+  {rel}
+  {href}
+  aria-label={href.split(":")[1]}
   class="transform text-gray-600 transition-transform duration-300 hover:scale-110 hover:text-red-600"
 >
   <Icon name={icon} size={24} />

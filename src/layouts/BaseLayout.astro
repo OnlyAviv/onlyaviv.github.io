@@ -1,12 +1,31 @@
 ---
+import { SEO } from "astro-seo";
+
 const { title } = Astro.props;
+
+const actualTitle = title ? `RedYetiDev | ${title}` : "RedYetiDev";
+const description =
+  "RedYetiDev is a software developer and cybersecurity enthusiast.";
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RedYetiDev | {title}</title>
+    <SEO
+      title={actualTitle}
+      {description}
+      charset="utf-8"
+      twitter={{
+        card: "summary",
+        site: "@RedYetiDev",
+        creator: "@RedYetiDev",
+        title: actualTitle,
+        description,
+      }}
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{actualTitle}</title>
   </head>
   <body class="flex min-h-screen flex-col bg-gray-50 font-sans text-gray-800">
     <slot />
