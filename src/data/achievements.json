@@ -29,6 +29,11 @@
     "url": "https://github.com/orgs/GitHubBounty/people?query=RedYetiDev"
   },
   {
+    "title": "freeCodeCamp Hall of Fame",
+    "icon": "mdi:fire",
+    "url": "https://contribute.freecodecamp.org/security-hall-of-fame/"
+  },
+  {
     "title": "SAP Hall of Fame",
     "icon": "mdi:security",
     "url": "https://support.sap.com/en/my-support/knowledge-base/security-notes-news/credits-for-security-researchers.html"
