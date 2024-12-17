@@ -13,7 +13,10 @@ import BackTo from "../components/BackTo.astro";
       achievements.map((achievement) => (
         <div class="rounded-lg bg-white p-6 text-center shadow-md transition duration-300 hover:scale-105">
           <div class="mb-4 flex justify-center">
-            <Icon class="h-12 w-12 text-red-600" name={achievement.icon} />
+            <Icon
+              class="h-12 w-12 text-red-600"
+              name={achievement.icon || "mdi:security"}
+            />
           </div>
           <h3 class="mb-2 text-xl font-semibold">{achievement.title}</h3>
           {achievement.url && (

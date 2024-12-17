@@ -23,6 +23,12 @@
     "website": "https://tt.js.org"
   },
   {
+    "title": "BitPackedBuffer",
+    "description": "A high-performance JavaScript library for bit-level data manipulation with zero dependencies.",
+    "technologies": ["JavaScript", "Node.js"],
+    "githubLink": "https://github.com/RedYetiDev/bitpackedbuffer"
+  },
+  {
     "title": "TinyBF",
     "description": "The smallest Brainfuck compiler available!",
     "technologies": ["JavaScript", "Node.js"],
