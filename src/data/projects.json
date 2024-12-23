@@ -19,86 +19,86 @@
     "title": "Terminal Tools",
     "description": "A diverse assortment of utilities designed for the terminal.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/terminaltools",
+    "githubLink": "https://github.com/avivkeller/terminaltools",
     "website": "https://tt.js.org"
   },
   {
     "title": "BitPackedBuffer",
     "description": "A high-performance JavaScript library for bit-level data manipulation with zero dependencies.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/bitpackedbuffer"
+    "githubLink": "https://github.com/avivkeller/bitpackedbuffer"
   },
   {
     "title": "TinyBF",
     "description": "The smallest Brainfuck compiler available!",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/tinybf"
+    "githubLink": "https://github.com/avivkeller/tinybf"
   },
   {
     "title": "termview",
     "description": "A package that enables rendering of images, videos, and GIFs directly in the terminal.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/termview"
+    "githubLink": "https://github.com/avivkeller/termview"
   },
   {
     "title": "Termestry",
     "description": "A tapestry of terminal outputs.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/termestry",
+    "githubLink": "https://github.com/avivkeller/termestry",
     "website": "https://termestry.js.org"
   },
   {
     "title": "ProtoTools",
     "description": "ProtoTools offers various utilities to streamline the coding process.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/ProtoTools"
+    "githubLink": "https://github.com/avivkeller/ProtoTools"
   },
   {
     "title": "bingmaps",
     "description": "A Node.js wrapper for interacting with the Bing Maps API.",
     "technologies": ["JavaScript", "Node.js"],
-    "githubLink": "https://github.com/onlyaviv/bingmaps"
+    "githubLink": "https://github.com/avivkeller/bingmaps"
   },
   {
     "title": "not-so-human-benchmark",
     "description": "An unconventional approach to completing the Human Benchmark tests.",
     "technologies": ["JavaScript", "Node.js", "Bing Maps"],
-    "githubLink": "https://github.com/onlyaviv/not-so-human-benchmark"
+    "githubLink": "https://github.com/avivkeller/not-so-human-benchmark"
   },
   {
     "title": "pip-parse",
     "description": "A JavaScript library designed to parse Python package requirements effectively.",
     "technologies": ["JavaScript", "Node.js", "Python"],
-    "githubLink": "https://github.com/onlyaviv/pip-parse"
+    "githubLink": "https://github.com/avivkeller/pip-parse"
   },
   {
     "title": "split-with-continuation",
     "description": "A utility for splitting lines using a custom newline separator along with a continuation character.",
     "technologies": ["JavaScript"],
-    "githubLink": "https://github.com/onlyaviv/split-with-continuation"
+    "githubLink": "https://github.com/avivkeller/split-with-continuation"
   },
   {
     "title": "is-lower",
     "description": "A JavaScript library that checks if a string is entirely in lowercase.",
     "technologies": ["JavaScript"],
-    "githubLink": "https://github.com/onlyaviv/is-lower"
+    "githubLink": "https://github.com/avivkeller/is-lower"
   },
   {
     "title": "uniform-locale",
     "description": "An ESLint plugin that enforces consistency in locale spelling across your project.",
     "technologies": ["JavaScript", "ESLint"],
-    "githubLink": "https://github.com/onlyaviv/uniform-locale"
+    "githubLink": "https://github.com/avivkeller/uniform-locale"
   },
   {
     "title": "frozen-fruit",
     "description": "Provides frozen primordials for JavaScript projects.",
     "technologies": ["JavaScript"],
-    "githubLink": "https://github.com/onlyaviv/frozen-fruit"
+    "githubLink": "https://github.com/avivkeller/frozen-fruit"
   },
   {
     "title": "clang-tidy",
     "description": "A Node.js wrapper for the clang-tidy tool, simplifying its use in Node.js applications.",
     "technologies": ["JavaScript", "LLVM"],
-    "githubLink": "https://github.com/onlyaviv/clang-tidy"
+    "githubLink": "https://github.com/avivkeller/clang-tidy"
   }
 ]
