@@ -38,6 +38,16 @@
     "url": "https://github.com/advisories/GHSA-8mq4-9jjh-9xrc"
   },
   {
+    "title": "Verizon Letter of Appreciation",
+    "url": "/assets/verizon_rec.pdf",
+    "icon": "simple-icons:verizon"
+  },
+  {
+    "title": "NASA Letter of Appreciation",
+    "url": "/assets/nasa_rec.pdf",
+    "icon": "simple-icons:nasa"
+  },
+  {
     "title": "freeCodeCamp Hall of Fame",
     "icon": "simple-icons:freecodecamp",
     "url": "https://contribute.freecodecamp.org/security-hall-of-fame/"
