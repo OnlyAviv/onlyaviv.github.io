@@ -1,6 +1,7 @@
 ---
 import StaticLayout from "../layouts/StaticLayout.astro";
 import BackTo from "../components/BackTo.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
 
 const blogs = await Astro.glob("./posts/*.md");
 ---
@@ -9,20 +10,6 @@ const blogs = await Astro.glob("./posts/*.md");
   <BackTo />
   <h1 class="mb-8 text-center text-4xl font-bold">Blog Posts</h1>
   <div class="space-y-12">
-    {
-      blogs.map((post) => (
-        <article class="rounded-lg bg-white p-6 shadow-md">
-          <h2 class="mb-2 text-2xl font-semibold">{post.frontmatter.title}</h2>
-          <p class="mb-4 text-sm text-gray-500">{post.frontmatter.pubData}</p>
-          <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
-          <a
-            href={post.url}
-            class="inline-flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
-          >
-            Read Full Post
-          </a>
-        </article>
-      ))
-    }
+    {blogs.map((post) => <BlogPostCard post={post} />)}
   </div>
 </StaticLayout>

@@ -5,9 +5,18 @@ import StaticLayout from "./StaticLayout.astro";
 
 // Destructure frontmatter and compiled content from Astro props
 const { frontmatter, compiledContent } = Astro.props;
-const shareText = encodeURIComponent(
-  "@aviv_keller posted this AMAZING article!",
-);
+const shareText = encodeURIComponent(" posted this AMAZING article!");
+
+const shareURLs = [
+  {
+    icon: "simple-icons:x",
+    url: `https://twitter.com/share?url=${Astro.url}&text=${encodeURIComponent("@aviv_keller")}${shareText}`,
+  },
+  {
+    icon: "simple-icons:linkedin",
+    url: `https://www.linkedin.com/shareArticle?url=${Astro.url}&text=${encodeURIComponent("Aviv Keller")}${shareText}`,
+  },
+];
 ---
 
 <StaticLayout title={frontmatter.title}>
@@ -34,18 +43,16 @@ const shareText = encodeURIComponent(
     <div class="mx-auto mt-8 flex max-w-3xl items-center justify-between">
       <div class="text-gray-600">Share this post:</div>
       <div class="flex space-x-4">
-        <a
-          href={`https://twitter.com/share?url=${Astro.url}&text=${shareText}`}
-          class="text-red-600 transition-colors duration-300 hover:text-red-700"
-        >
-          <Icon name="mdi:twitter" size={24} />
-        </a>
-        <a
-          href={`https://www.linkedin.com/shareArticle?url=${Astro.url}&text=${shareText}`}
-          class="text-red-600 transition-colors duration-300 hover:text-red-700"
-        >
-          <Icon name="mdi:linkedin" size={24} />
-        </a>
+        {
+          shareURLs.map(({ icon, url }) => (
+            <a
+              href={url}
+              class="text-red-600 transition-colors duration-300 hover:text-red-700"
+            >
+              <Icon name={icon} size={18} />
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>

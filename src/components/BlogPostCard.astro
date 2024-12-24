@@ -1,0 +1,19 @@
+---
+const { post } = Astro.props;
+---
+
+<article class="rounded-lg bg-white p-6 shadow-md">
+  <h3 class="mb-2 text-xl font-semibold">
+    {post.frontmatter.title}
+  </h3>
+  <p class="mb-2 text-sm text-gray-500">
+    {post.frontmatter.pubDate}
+  </p>
+  <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
+  <a
+    href={post.url}
+    class="flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
+  >
+    Read More
+  </a>
+</article>

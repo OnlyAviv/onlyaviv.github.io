@@ -16,6 +16,11 @@
     "website": "https://gora.apache.org"
   },
   {
+    "title": "Artificial Intelligence Restriction License",
+    "description": "A license that allows creators to share open-source software while restricting its use in AI development and training without explicit consent.",
+    "githubLink": "https://github.com/avivkeller/AIR"
+  },
+  {
     "title": "Terminal Tools",
     "description": "A diverse assortment of utilities designed for the terminal.",
     "technologies": ["JavaScript", "Node.js"],

@@ -1,10 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
 import projects from "../data/projects.json";
 import achievements from "../data/achievements.json";
 import SocialLinks from "../components/SocialLinks.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
+import AchievementCard from "../components/AchievementCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
 
 const blogs = await Astro.glob("./posts/*.md");
 ---
@@ -27,27 +29,9 @@ const blogs = await Astro.glob("./posts/*.md");
         <h2 class="mb-8 text-center text-3xl font-bold">Projects</h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
-            projects.slice(0, 3).map((project) => (
-              <div class="flex transform flex-col justify-between overflow-hidden rounded-lg bg-gray-50 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-                {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="h-48 w-full object-cover"
-                  />
-                )}
-                <div class="p-6">
-                  <h3 class="mb-2 text-xl font-semibold">{project.title}</h3>
-                  <p class="mb-4 text-gray-600">{project.description}</p>
-                  <a
-                    href={project.website || project.githubLink}
-                    class="font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
-                  >
-                    View More
-                  </a>
-                </div>
-              </div>
-            ))
+            projects
+              .slice(0, 3)
+              .map((project) => <ProjectCard project={project} />)
           }
         </div>
         <div class="mt-12 text-center">
@@ -67,25 +51,11 @@ const blogs = await Astro.glob("./posts/*.md");
         <h2 class="mb-8 text-center text-3xl font-bold">Achievements</h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           {
-            achievements.slice(0, 3).map((achievement) => (
-              <div class="transform rounded-lg bg-white p-6 text-center shadow-md transition duration-300 hover:scale-105">
-                <div class="mb-4 flex justify-center">
-                  <Icon
-                    class="h-12 w-12 text-red-600"
-                    name={achievement.icon}
-                  />
-                </div>
-                <h3 class="mb-2 text-xl font-semibold">{achievement.title}</h3>
-                {achievement.url && (
-                  <a
-                    href={achievement.url}
-                    class="font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
-                  >
-                    Learn More
-                  </a>
-                )}
-              </div>
-            ))
+            achievements
+              .slice(0, 3)
+              .map((achievement) => (
+                <AchievementCard achievement={achievement} />
+              ))
           }
         </div>
         <div class="mt-12 text-center">
@@ -114,14 +84,12 @@ const blogs = await Astro.glob("./posts/*.md");
             {/* Center text on small screens */}
             <h2 class="mb-4 text-3xl font-bold">About Me</h2>
             <p class="mb-4 text-gray-600">
-              I'm a passionate software engineer with expertise in
-              cybersecurity. I've worked on a wide range of projects from
-              startups to Fortune 500 companies.
-            </p>
-            <p class="mb-4 text-gray-600">
-              My goal is to create innovative solutions that make a positive
-              impact on people's lives while ensuring the highest level of
-              security.
+              Hey there! I'm Aviv, a passionate developer who thrives on
+              crafting innovative solutions and exploring the endless
+              possibilities that code offers. Outside of my development work,
+              I'm always diving into new technologies, contributing to
+              open-source communities, and sharing my insights through blog
+              posts.
             </p>
             <SocialLinks />
           </div>
@@ -134,25 +102,7 @@ const blogs = await Astro.glob("./posts/*.md");
       <div class="container mx-auto px-4">
         <h2 class="mb-8 text-center text-3xl font-bold">Latest Blog Posts</h2>
         <div class="space-y-8">
-          {
-            blogs.slice(0, 3).map((post) => (
-              <div class="rounded-lg bg-white p-6 shadow-md">
-                <h3 class="mb-2 text-xl font-semibold">
-                  {post.frontmatter.title}
-                </h3>
-                <p class="mb-2 text-sm text-gray-500">
-                  {post.frontmatter.pubDate}
-                </p>
-                <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
-                <a
-                  href={post.url}
-                  class="flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
-                >
-                  Read More
-                </a>
-              </div>
-            ))
-          }
+          {blogs.slice(0, 3).map((post) => <BlogPostCard post={post} />)}
         </div>
         <div class="mt-12 text-center">
           <a
