@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 const { project } = Astro.props;
 ---
 
@@ -8,7 +9,7 @@ const { project } = Astro.props;
 >
   {
     project.image && (
-      <img
+      <Image
         src={project.image}
         alt={project.title}
         class="h-48 w-full object-cover"

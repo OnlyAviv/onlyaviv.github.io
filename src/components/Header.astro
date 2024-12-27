@@ -1,7 +1,7 @@
 ---
 // Import the Icon component
 import { Icon } from "astro-icon/components";
-import sections from "../data/sections.json";
+import sections from "../data/sections";
 ---
 
 <nav
@@ -35,9 +35,10 @@ import sections from "../data/sections.json";
   <div id="mobileMenu" class="fixed inset-0 z-30 hidden bg-white md:hidden">
     <div class="flex h-full flex-col items-center justify-center space-y-6">
       {
-        sections.map(({ title, href }) => (
+        sections.map(({ title, href, target = "_self" }) => (
           <a
             href={href}
+            target={target}
             class="text-xl text-gray-600 transition-colors duration-300 hover:text-red-600"
           >
             {title}

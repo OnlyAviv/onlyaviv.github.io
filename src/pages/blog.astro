@@ -9,7 +9,7 @@ const blogs = await Astro.glob("./posts/*.md");
 <StaticLayout title="Blog">
   <BackTo />
   <h1 class="mb-8 text-center text-4xl font-bold">Blog Posts</h1>
-  <div class="space-y-12">
+  <div class="grid grid-cols-1 gap-8 space-y-12 md:grid-cols-2">
     {blogs.map((post) => <BlogPostCard post={post} />)}
   </div>
 </StaticLayout>

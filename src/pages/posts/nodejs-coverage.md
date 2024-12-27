@@ -3,6 +3,7 @@ title: Collecting code coverage in Node.js
 layout: ../../layouts/PostLayout.astro
 pubDate: November 2nd, 2024
 readingTime: 6 min
+description: This post explores how to collect code coverage in Node.js using its built-in test runner and the <code>--experimental-code-coverage</code> flag.
 ---
 
 Node.js provides built-in support for code coverage through its test runner, which can be enabled using the [`--experimental-code-coverage`](https://nodejs.org/api/cli.html#--experimental-test-coverage) flag.

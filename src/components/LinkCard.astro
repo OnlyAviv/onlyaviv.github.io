@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+const { url = "#", target = "_self" } = Astro.props;
+---
+
+<a
+  href={url}
+  target={target}
+  class="relative block rounded-lg bg-white p-6 shadow-md transition duration-300 hover:scale-105 hover:text-red-600 hover:shadow-lg"
+>
+  {
+    url !== "#" && target !== "_self" && (
+      <span
+        class="absolute right-2 top-2 text-gray-500"
+        aria-label="External Link"
+      >
+        <Icon class="h-5 w-5" name="mdi:external-link" />
+      </span>
+    )
+  }
+  <slot />
+</a>

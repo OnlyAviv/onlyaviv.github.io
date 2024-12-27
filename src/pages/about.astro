@@ -1,6 +1,9 @@
 ---
 import StaticLayout from "../layouts/StaticLayout.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+
+import avatar from "../assets/images/avivkeller-logo.png";
+import { Image } from "astro:assets";
 ---
 
 <StaticLayout title="About">
@@ -10,8 +13,8 @@ import SocialLinks from "../components/SocialLinks.astro";
   <section
     class="mb-12 flex flex-col items-center space-y-8 md:flex-row md:items-start md:space-x-12 md:space-y-0"
   >
-    <img
-      src="https://avatars.githubusercontent.com/u/38299977"
+    <Image
+      src={avatar}
       class="h-64 w-64 rounded-full object-cover shadow-lg"
       alt="Aviv Keller's Avatar"
     />

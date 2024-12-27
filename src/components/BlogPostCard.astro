@@ -1,19 +1,27 @@
 ---
+import { Icon } from "astro-icon/components";
+
+import LinkCard from "./LinkCard.astro";
+
 const { post } = Astro.props;
 ---
 
-<article class="rounded-lg bg-white p-6 shadow-md">
-  <h3 class="mb-2 text-xl font-semibold">
-    {post.frontmatter.title}
-  </h3>
-  <p class="mb-2 text-sm text-gray-500">
-    {post.frontmatter.pubDate}
-  </p>
-  <p class="mb-4 text-gray-600">{post.frontmatter.description}</p>
-  <a
-    href={post.url}
-    class="flex items-center font-semibold text-red-600 transition-colors duration-300 hover:text-red-700"
-  >
-    Read More
-  </a>
-</article>
+<LinkCard url={post.url}>
+  <div class="flex flex-1 flex-col">
+    <h2 class="mb-2 text-xl font-semibold">{post.frontmatter.title}</h2>
+    <p
+      class="mb-4 flex-1 text-gray-600"
+      set:html={post.frontmatter.description}
+    />
+    <div class="flex items-center justify-between text-sm text-gray-500">
+      <div class="flex items-center">
+        <Icon name="mdi:calendar" size={16} class="mr-1" />
+        <span>{post.frontmatter.pubDate}</span>
+      </div>
+      <div class="flex items-center">
+        <Icon name="mdi:clock" size={16} class="mr-1" />
+        <span>{post.frontmatter.readingTime}</span>
+      </div>
+    </div>
+  </div>
+</LinkCard>

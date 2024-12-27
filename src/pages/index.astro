@@ -1,12 +1,15 @@
 ---
-import projects from "../data/projects.json";
-import achievements from "../data/achievements.json";
+import projects from "../data/projects";
+import achievements from "../data/achievements";
 import SocialLinks from "../components/SocialLinks.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 import AchievementCard from "../components/AchievementCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
+import { Image } from "astro:assets";
+
+import avatar from "../assets/images/avivkeller-logo.png";
 
 const blogs = await Astro.glob("./posts/*.md");
 ---
@@ -75,10 +78,10 @@ const blogs = await Astro.glob("./posts/*.md");
         <div
           class="flex flex-col items-center justify-center md:flex-row md:justify-start md:space-x-12 md:space-y-0"
         >
-          <img
-            alt="Aviv Keller"
-            src="https://avatars.githubusercontent.com/u/38299977"
+          <Image
+            src={avatar}
             class="h-64 w-64 rounded-full object-cover"
+            alt="Aviv Keller's Avatar"
           />
           <div class="text-center md:text-left">
             {/* Center text on small screens */}
@@ -101,7 +104,7 @@ const blogs = await Astro.glob("./posts/*.md");
     <section id="blog" class="bg-red-50 py-20">
       <div class="container mx-auto px-4">
         <h2 class="mb-8 text-center text-3xl font-bold">Latest Blog Posts</h2>
-        <div class="space-y-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           {blogs.slice(0, 3).map((post) => <BlogPostCard post={post} />)}
         </div>
         <div class="mt-12 text-center">
@@ -125,6 +128,7 @@ const blogs = await Astro.glob("./posts/*.md");
         </p>
         <a
           href="https://github.com/sponsors/avivkeller"
+          target="_blank"
           class="rounded-full bg-red-600 px-8 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-red-700"
         >
           Make a Donation
