@@ -14,8 +14,12 @@ import sections from "../data/sections";
       >
       <div id="menu-items" class="hidden space-x-6 text-white md:flex">
         {
-          sections.map(({ title, href }) => (
-            <a href={href} class="nav-link transition-colors duration-300">
+          sections.map(({ title, href, target = "_self" }) => (
+            <a
+              href={href}
+              target={target}
+              class="nav-link transition-colors duration-300"
+            >
               {title}
             </a>
           ))

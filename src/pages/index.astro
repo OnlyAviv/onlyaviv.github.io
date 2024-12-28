@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
 
 import avatar from "../assets/images/avivkeller-logo.png";
 
-const blogs = await Astro.glob("./posts/*.md");
+const blogs = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
 ---
 
 <MainLayout title="Home">
@@ -94,7 +94,9 @@ const blogs = await Astro.glob("./posts/*.md");
               open-source communities, and sharing my insights through blog
               posts.
             </p>
-            <SocialLinks />
+            <div class="flex justify-center md:justify-normal">
+              <SocialLinks />
+            </div>
           </div>
         </div>
       </div>

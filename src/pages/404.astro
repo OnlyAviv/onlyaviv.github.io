@@ -4,9 +4,7 @@ import StaticLayout from "../layouts/StaticLayout.astro";
 ---
 
 <StaticLayout title="404">
-  <main
-    class="container relative mx-auto flex min-h-[80vh] flex-col justify-center overflow-hidden px-4 py-16 text-center"
-  >
+  <div class="flex h-[80vh] flex-col justify-center text-center">
     <h1 class="mb-4 text-9xl font-bold text-red-600">404</h1>
     <p class="mb-8 text-2xl">
       Oops! Looks like you've wandered into uncharted territory.
@@ -20,5 +18,5 @@ import StaticLayout from "../layouts/StaticLayout.astro";
         Return to Home Base
       </a>
     </div>
-  </main>
+  </div>
 </StaticLayout>

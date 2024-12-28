@@ -2,76 +2,45 @@
 import { Icon } from "astro-icon/components";
 import BackTo from "../components/BackTo.astro";
 import StaticLayout from "./StaticLayout.astro";
+import avatar from "../assets/images/avivkeller-logo.png";
+import ShareButtons from "../components/ShareButtons.astro";
+import { Image } from "astro:assets";
 
 // Destructure frontmatter and compiled content from Astro props
-const { frontmatter, compiledContent } = Astro.props;
-
-const title = encodeURIComponent(frontmatter.title);
-const desc = encodeURIComponent(frontmatter.description);
-
-const shareURLs = [
-  {
-    icon: "simple-icons:x",
-    url: `https://twitter.com/share?url=${Astro.url}&text=${title}`,
-  },
-  {
-    icon: "simple-icons:linkedin",
-    url: `https://www.linkedin.com/shareArticle?url=${Astro.url}&text=${title}`,
-  },
-  {
-    icon: "simple-icons:facebook",
-    url: `https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`,
-  },
-  {
-    icon: "simple-icons:ycombinator",
-    url: `https://news.ycombinator.com/submitlink?u=${Astro.url}&t=${title}`,
-  },
-  {
-    icon: "simple-icons:reddit",
-    url: `https://www.reddit.com/submit?u=${Astro.url}&t=${title}`,
-  },
-  {
-    icon: "simple-icons:gmail",
-    url: `mailto:?subject=${title}&text=${desc}%0A${Astro.url}`,
-  },
-];
+let { frontmatter, compiledContent } = Astro.props;
 ---
 
 <StaticLayout title={frontmatter.title}>
-  <div class="container">
-    <BackTo name="Blog" href="/blog" />
+  <BackTo name="Blog" href="/blog" />
 
-    <article
-      class="mx-auto max-w-3xl overflow-hidden rounded-lg bg-white shadow-md"
-    >
-      <div class="p-8">
-        <h1 class="mb-4 text-center text-4xl font-bold">{frontmatter.title}</h1>
-        <div class="mb-6 flex flex-row justify-between text-gray-600">
-          <span class="mr-2">{frontmatter.pubDate}</span>
-          <span class="flex items-center">
-            <Icon name="mdi:clock" size={16} class="mr-2" />
-            {frontmatter.readingTime} read
-          </span>
-        </div>
-        <div class="prose max-w-none">
-          <Fragment set:html={compiledContent()} />
+  <article
+    class="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg"
+  >
+    <div class="p-8">
+      <div class="mb-6 flex items-center">
+        <Image
+          src={avatar}
+          alt="Aviv Keller"
+          class="mr-4 h-12 w-12 rounded-full"
+        />
+        <div>
+          <h2 class="text-lg font-semibold">Aviv Keller</h2>
+          <div class="flex items-center text-sm text-gray-500">
+            <Icon name="mdi:calendar" class="mr-1 h-4 w-4" />
+            <span class="mr-4">{frontmatter.pubDate}</span>
+            <Icon name="mdi:clock" class="mr-1 h-4 w-4" />
+            <span>{frontmatter.readingTime}</span>
+          </div>
         </div>
       </div>
-    </article>
-    <div class="mx-auto mt-8 flex max-w-3xl items-center justify-between">
-      <div class="text-gray-600">Share this post:</div>
-      <div class="flex space-x-4">
-        {
-          shareURLs.map(({ icon, url }) => (
-            <a
-              href={url}
-              class="text-red-600 transition-colors duration-300 hover:text-red-700"
-            >
-              <Icon name={icon} size={18} />
-            </a>
-          ))
-        }
+      <h1 class="mb-6 text-4xl font-bold">{frontmatter.title}</h1>
+      <div class="prose mb-8 max-w-none" set:html={compiledContent()} />
+      <div
+        class="flex items-center justify-between border-t border-gray-200 pt-4"
+      >
+        <div class="text-gray-600">Share this post:</div>
+        <ShareButtons frontmatter={frontmatter} />
       </div>
     </div>
-  </div>
+  </article>
 </StaticLayout>

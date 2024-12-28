@@ -3,7 +3,7 @@ import StaticLayout from "../layouts/StaticLayout.astro";
 import BackTo from "../components/BackTo.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
 
-const blogs = await Astro.glob("./posts/*.md");
+const blogs = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
 ---
 
 <StaticLayout title="Blog">
