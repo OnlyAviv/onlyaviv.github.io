@@ -1,5 +1,7 @@
 import goraLogo from "../assets/images/gora-logo.png";
 import nodejsLogo from "../assets/images/nodejs-logo.svg";
+import termviewLogo from "../assets/images/termview-logo.png";
+import keyframedLogo from "../assets/images/keyframed-logo.png";
 
 export default [
   {
@@ -18,6 +20,12 @@ export default [
     technologies: ["Bootstrap", "HTML"],
     githubLink: "https://github.com/apache/gora-site",
     website: "https://gora.apache.org",
+  },
+  {
+    title: "Videos in CSS",
+    description: "A script that converts videos into pure CSS keyframes",
+    githubLink: "https://github.com/avivkeller/keyframed-videos",
+    image: keyframedLogo,
   },
   {
     title: "Artificial Intelligence Restriction License",
@@ -51,6 +59,7 @@ export default [
       "A package that enables rendering of images, videos, and GIFs directly in the terminal.",
     technologies: ["JavaScript", "Node.js"],
     githubLink: "https://github.com/avivkeller/termview",
+    image: termviewLogo,
   },
   {
     title: "Termestry",
