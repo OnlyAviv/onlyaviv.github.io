@@ -30,12 +30,16 @@ export default [
     url: "https://github.com/orgs/GitHubBounty/people?query=avivkeller",
   },
   {
+    title: "CVE-2024-39700",
+    url: "https://github.com/jupyterlab/extension-template/security/advisories/GHSA-45gq-v5wm-82wg",
+  },
+  {
     title: "CVE-2024-28866",
     url: "https://github.com/gocd/gocd/security/advisories/GHSA-q882-q6mm-mgvh",
   },
   {
     title: "CVE-2024-27285",
-    url: "https://github.com/advisories/GHSA-8mq4-9jjh-9xrc",
+    url: "https://github.com/lsegal/yard/security/advisories/GHSA-8mq4-9jjh-9xrc",
   },
   {
     title: "Verizon Letter of Appreciation",
